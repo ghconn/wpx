@@ -202,7 +202,8 @@
 		}
 
 		const doit = _ => {
-			s.value = s.value.replace(/(\w+\s*)(:)/g, (m, n, o, p, q) => `"${n}"${o}`)
+			//s.value = s.value.replace(/(\w+\s*)(:)/g, (m, n, o, p, q) => `"${n}"${o}`)
+			s.value = s.value.replace(/(?<!"\w*)(\w+)\s*\:\s*/g, (m, n, o) => `"${n}": `)
 			let json = s.value
 			o.value = json2entity(json)
 		}
